@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wangxiaojing66.github.io/oipuloh-site/sitemap.xml
