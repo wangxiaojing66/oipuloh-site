@@ -26,18 +26,33 @@ python3 -m http.server 4173
 python3 build.py
 ```
 
-## 已上线预览
+## 免费品牌子域名（Cloudflare Pages，主站）
+
+- 地址：https://oipuloh.pages.dev/
+- Cloudflare Pages 项目：`oipuloh`
+- 部署命令：
+
+```bash
+cd "/Users/q/Music/Codex/Codex 亚马逊/Oipuloh_官网"
+SITE_DOMAIN='https://oipuloh.pages.dev' python3 build.py
+mkdir -p dist
+cp -R assets product dist/
+cp *.html sitemap.xml robots.txt .nojekyll dist/
+npx wrangler pages deploy dist --project-name oipuloh --branch main
+```
+
+## GitHub Pages 备用镜像
 
 - 预览地址：https://wangxiaojing66.github.io/oipuloh-site/
 - 仓库：https://github.com/wangxiaojing66/oipuloh-site
 - GitHub Pages 已开启并强制 HTTPS。
-- 预览构建使用 `SITE_DOMAIN=https://wangxiaojing66.github.io/oipuloh-site`，canonical 与 sitemap 指向预览地址。
+- 主站 canonical 指向 `https://oipuloh.pages.dev`；GitHub Pages 作为备用镜像。
 
 后续更新：
 
 ```bash
 cd "/Users/q/Music/Codex/Codex 亚马逊/Oipuloh_官网"
-SITE_DOMAIN='https://wangxiaojing66.github.io/oipuloh-site' python3 build.py
+SITE_DOMAIN='https://oipuloh.pages.dev' python3 build.py
 git add .
 git commit -m "Update site"
 git push
@@ -55,7 +70,7 @@ git push
 ## Ads API 表单填写建议
 
 - 公司法定名称：`衡阳燧石蜂贸易有限公司`。
-- 公司网站：最终用 `https://oipuloh.com`；审核前不建议用 github.io 预览地址。
+- 公司网站：现在可填 `https://oipuloh.pages.dev`；最终建议换 `https://oipuloh.com`。
 - 品牌名称：`Oipuloh`。
 - 国家/地区：按注册主体选择。
 - 广告账户所在站点：勾选 `美国`。
