@@ -26,20 +26,22 @@ python3 -m http.server 4173
 python3 build.py
 ```
 
-## 上线到 GitHub Pages
+## 已上线预览
 
-需要把本目录放到一个 **public** 仓库，然后在仓库 Settings → Pages 选择 `main` 分支根目录。
+- 预览地址：https://wangxiaojing66.github.io/oipuloh-site/
+- 仓库：https://github.com/wangxiaojing66/oipuloh-site
+- GitHub Pages 已开启并强制 HTTPS。
+- 预览构建使用 `SITE_DOMAIN=https://wangxiaojing66.github.io/oipuloh-site`，canonical 与 sitemap 指向预览地址。
+
+后续更新：
 
 ```bash
 cd "/Users/q/Music/Codex/Codex 亚马逊/Oipuloh_官网"
-git init
+SITE_DOMAIN='https://wangxiaojing66.github.io/oipuloh-site' python3 build.py
 git add .
-git commit -m "Oipuloh brand website"
-gh repo create oipuloh-site --public --source=. --remote=origin --push
-gh api -X POST repos/{owner}/oipuloh-site/pages -f source[branch]=main -f source[path]=/
+git commit -m "Update site"
+git push
 ```
-
-上线后地址形如 `https://<username>.github.io/oipuloh-site/`。这个地址可用于临时预览，但 Ads API 表单建议填写自有域名。
 
 ## 绑定自有域名（推荐）
 
@@ -48,12 +50,12 @@ gh api -X POST repos/{owner}/oipuloh-site/pages -f source[branch]=main -f source
    - `A` 记录到 GitHub Pages 的四个 IP；
    - `CNAME` 将 `www` 指向 `<username>.github.io`。
 3. 开启 Enforce HTTPS。
-4. 把 `site.config.json` 的 `domain` 改为 `https://oipuloh.com`，重新运行 `python3 build.py` 并提交。
+4. 把 `site.config.json` 的 `domain` 改为 `https://oipuloh.com`，运行 `python3 build.py`（不要带 `SITE_DOMAIN`），提交并推送。
 
 ## Ads API 表单填写建议
 
 - 公司法定名称：`衡阳燧石蜂贸易有限公司`。
-- 公司网站：`https://oipuloh.com`（必须已能打开，且证书有效）。
+- 公司网站：最终用 `https://oipuloh.com`；审核前不建议用 github.io 预览地址。
 - 品牌名称：`Oipuloh`。
 - 国家/地区：按注册主体选择。
 - 广告账户所在站点：勾选 `美国`。
