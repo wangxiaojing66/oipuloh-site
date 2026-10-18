@@ -120,6 +120,10 @@ p:last-child {
   border: 0;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .skip-link {
   position: fixed;
   top: 12px;

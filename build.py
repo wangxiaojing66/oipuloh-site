@@ -155,7 +155,7 @@ def site_footer(prefix: str) -> str:
   </div>
   <div class="shell footer-bottom">
     <p>&copy; {date.today().year} {esc(LEGAL)}. All rights reserved.</p>
-    <p class="fine">Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. {esc(BRAND)} is a brand of {esc(LEGAL)}.</p>
+    <p class="fine">Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. {esc(BRAND)} is a brand of <span class="nowrap">{esc(LEGAL)}</span>.</p>
   </div>
 </footer>
 """
